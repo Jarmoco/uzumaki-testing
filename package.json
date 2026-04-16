@@ -1,0 +1,19 @@
+{
+  "name": "uzumaki-testing",
+  "version": "0.1.0",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "../uzumaki/target/release/uzumaki src/index.tsx",
+    "build": "../uzumaki/target/release/uzumaki build"
+  },
+  "dependencies": {
+    "uzumaki-ui": "file:../uzumaki/crates/uzumaki",
+    "react": "^19.2.4"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.14",
+    "bun-types": "latest",
+    "typescript": "^5.8.3"
+  }
+}

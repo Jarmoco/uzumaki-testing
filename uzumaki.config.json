@@ -1,0 +1,14 @@
+{
+  "productName": "uzumaki-testing",
+  "version": "0.1.0",
+  "identifier": "github.jarmoco.uzumaki_testing",
+  "build": {
+    "command": "bun build src/index.tsx --target node --outdir dist --minify"
+  },
+  "pack": {
+    "dist": "./dist",
+    "entry": "index.js",
+    "output": "./uzumaki-testing",
+    "name": "uzumaki-testing"
+  }
+}

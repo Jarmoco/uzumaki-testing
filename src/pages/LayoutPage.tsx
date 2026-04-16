@@ -1,0 +1,300 @@
+import { useState } from 'react';
+import { C } from '../theme';
+import { Divider } from '../components';
+
+export function LayoutPage() {
+  const [showHidden, setShowHidden] = useState(false);
+  const [gap, setGap] = useState(8);
+  const [padding, setPadding] = useState(12);
+
+  return (
+    <view display="flex" flexDir="col" gap={0} h="full" scrollable>
+      <view display="flex" flexDir="col" px={24} py={16} borderBottom={1} borderColor={C.border}>
+        <text fontSize={20} fontWeight={800} color={C.text}>Layout Lab</text>
+        <text fontSize={12} color={C.textMuted}>
+          Flex, nesting, borders, rounding, opacity, visibility
+        </text>
+      </view>
+
+      <view display="flex" flexDir="col" gap={24} p={24}>
+
+        <view display="flex" flexDir="col" gap={12}>
+          <text fontSize={14} fontWeight={700} color={C.text}>Flexbox — justify variants</text>
+          {(['center', 'between', 'around', 'evenly'] as const).map(j => (
+            <view key={j} display="flex" flexDir="col" gap={4}>
+              <text fontSize={11} fontWeight={600} color={C.textMuted}>justify="{j}"</text>
+              <view
+                display="flex"
+                flexDir="row"
+                justify={j}
+                bg={C.surface2}
+                rounded={8}
+                p={12}
+                border={1}
+                borderColor={C.border}
+              >
+                {[C.accentHi, C.blueHi, C.greenHi, C.orangeHi].map((c, i) => (
+                  <view key={i} w={36} h={36} bg={c} rounded={6} />
+                ))}
+              </view>
+            </view>
+          ))}
+        </view>
+
+        <Divider />
+
+        <view display="flex" flexDir="col" gap={12}>
+          <text fontSize={14} fontWeight={700} color={C.text}>Flexbox — items variants</text>
+          <view display="flex" flexDir="row" gap={12}>
+            {(['start', 'center', 'end', 'stretch'] as const).map(a => (
+              <view key={a} display="flex" flexDir="col" gap={4} flex={1}>
+                <text fontSize={11} fontWeight={600} color={C.textMuted}>items="{a}"</text>
+                <view
+                  display="flex"
+                  flexDir="row"
+                  items={a}
+                  bg={C.surface2}
+                  rounded={8}
+                  p={10}
+                  h={70}
+                  border={1}
+                  borderColor={C.border}
+                  gap={4}
+                >
+                  {a === 'stretch' ? (
+                    <>
+                      <view w={24} bg={C.accentHi} rounded={4} />
+                      <view w={24} bg={C.blueHi} rounded={4} />
+                      <view w={24} bg={C.greenHi} rounded={4} />
+                    </>
+                  ) : (
+                    <>
+                      <view w={24} h={24} bg={C.accentHi} rounded={4} />
+                      <view w={24} h={36} bg={C.blueHi} rounded={4} />
+                      <view w={24} h={16} bg={C.greenHi} rounded={4} />
+                    </>
+                  )}
+                </view>
+              </view>
+            ))}
+          </view>
+        </view>
+
+        <Divider />
+
+        <view display="flex" flexDir="col" gap={12}>
+          <text fontSize={14} fontWeight={700} color={C.text}>Per-corner border-radius</text>
+          <view display="flex" flexDir="row" gap={12} items="center">
+            <view display="flex" flexDir="col" items="center" gap={4}>
+              <view w={60} h={60} bg={C.accent} roundedTL={24} />
+              <text fontSize={10} color={C.textMuted}>TL</text>
+            </view>
+            <view display="flex" flexDir="col" items="center" gap={4}>
+              <view w={60} h={60} bg={C.blue} roundedTR={24} />
+              <text fontSize={10} color={C.textMuted}>TR</text>
+            </view>
+            <view display="flex" flexDir="col" items="center" gap={4}>
+              <view w={60} h={60} bg={C.green} roundedBR={24} />
+              <text fontSize={10} color={C.textMuted}>BR</text>
+            </view>
+            <view display="flex" flexDir="col" items="center" gap={4}>
+              <view w={60} h={60} bg={C.orange} roundedBL={24} />
+              <text fontSize={10} color={C.textMuted}>BL</text>
+            </view>
+            <view display="flex" flexDir="col" items="center" gap={4}>
+              <view w={60} h={60} bg={C.yellow} roundedTL={24} roundedBR={24} />
+              <text fontSize={10} color={C.textMuted}>TL+BR</text>
+            </view>
+            <view display="flex" flexDir="col" items="center" gap={4}>
+              <view w={60} h={60} bg={C.red} roundedTR={24} roundedBL={24} />
+              <text fontSize={10} color={C.textMuted}>TR+BL</text>
+            </view>
+          </view>
+        </view>
+
+        <Divider />
+
+        <view display="flex" flexDir="col" gap={12}>
+          <text fontSize={14} fontWeight={700} color={C.text}>Per-side borders</text>
+          <view display="flex" flexDir="row" gap={12} items="center">
+            {[
+              { side: 'Top',    prop: { borderTop: 3    }, color: C.accentHi },
+              { side: 'Right',  prop: { borderRight: 3  }, color: C.blueHi  },
+              { side: 'Bottom', prop: { borderBottom: 3 }, color: C.greenHi },
+              { side: 'Left',   prop: { borderLeft: 3   }, color: C.orangeHi},
+              { side: 'All',    prop: { border: 2        }, color: C.yellowHi},
+            ].map(({ side, prop, color }) => (
+              <view key={side} display="flex" flexDir="col" items="center" gap={4}>
+                <view
+                  w={60}
+                  h={60}
+                  bg={C.surface2}
+                  rounded={8}
+                  borderColor={color}
+                  {...prop}
+                />
+                <text fontSize={10} color={C.textMuted}>{side}</text>
+              </view>
+            ))}
+          </view>
+        </view>
+
+        <Divider />
+
+        <view display="flex" flexDir="col" gap={12}>
+          <text fontSize={14} fontWeight={700} color={C.text}>Opacity scale</text>
+          <view display="flex" flexDir="row" gap={8} items="center">
+            {[1, 0.8, 0.6, 0.4, 0.2, 0.1].map(op => (
+              <view key={op} display="flex" flexDir="col" items="center" gap={4}>
+                <view
+                  w={52}
+                  h={52}
+                  bg={C.accent}
+                  rounded={10}
+                  opacity={op}
+                  display="flex"
+                  items="center"
+                  justify="center"
+                >
+                  <text fontSize={11} fontWeight={700} color="#fff">{op}</text>
+                </view>
+              </view>
+            ))}
+          </view>
+        </view>
+
+        <Divider />
+
+        <view display="flex" flexDir="col" gap={12}>
+          <view display="flex" flexDir="row" items="center" gap={20}>
+            <text fontSize={14} fontWeight={700} color={C.text}>Dynamic gap / padding</text>
+            <view display="flex" flexDir="row" items="center" gap={8}>
+              <button
+                onClick={() => setGap(g => Math.max(2, g - 2))}
+                px={10} py={4} bg={C.surface3} hover:bg={C.surface4} rounded={6}
+                border={1} borderColor={C.border} cursor="pointer"
+              >
+                <text fontSize={13} color={C.text}>gap−</text>
+              </button>
+              <text fontSize={12} color={C.accentHi}>gap={gap}</text>
+              <button
+                onClick={() => setGap(g => Math.min(40, g + 2))}
+                px={10} py={4} bg={C.surface3} hover:bg={C.surface4} rounded={6}
+                border={1} borderColor={C.border} cursor="pointer"
+              >
+                <text fontSize={13} color={C.text}>gap+</text>
+              </button>
+              <button
+                onClick={() => setPadding(p => Math.max(4, p - 4))}
+                px={10} py={4} bg={C.surface3} hover:bg={C.surface4} rounded={6}
+                border={1} borderColor={C.border} cursor="pointer"
+              >
+                <text fontSize={13} color={C.text}>p−</text>
+              </button>
+              <text fontSize={12} color={C.blueHi}>p={padding}</text>
+              <button
+                onClick={() => setPadding(p => Math.min(40, p + 4))}
+                px={10} py={4} bg={C.surface3} hover:bg={C.surface4} rounded={6}
+                border={1} borderColor={C.border} cursor="pointer"
+              >
+                <text fontSize={13} color={C.text}>p+</text>
+              </button>
+            </view>
+          </view>
+          <view display="flex" flexDir="row" gap={gap} p={padding} bg={C.surface2} rounded={10} border={1} borderColor={C.border}>
+            {['A', 'B', 'C', 'D', 'E'].map((l, i) => (
+              <view
+                key={l}
+                flex={1}
+                p={padding}
+                bg={[C.accentDim, C.blueDim, C.greenDim, '#422006', C.redDim][i]}
+                rounded={8}
+                display="flex"
+                items="center"
+                justify="center"
+              >
+                <text fontSize={16} fontWeight={800} color={C.text}>{l}</text>
+              </view>
+            ))}
+          </view>
+        </view>
+
+        <Divider />
+
+        <view display="flex" flexDir="col" gap={12}>
+          <text fontSize={14} fontWeight={700} color={C.text}>Deep nesting (6 levels)</text>
+          <view p={16} bg={C.surface2} rounded={16} border={1} borderColor={C.border}>
+            <view p={14} bg={C.surface3} rounded={14} border={1} borderColor={C.borderHi}>
+              <view p={12} bg="#1a1a2e" rounded={12} border={1} borderColor="#3a2a5a">
+                <view p={10} bg="#1e0a3c" rounded={10} border={1} borderColor={C.accent}>
+                  <view p={8} bg={C.accentDim} rounded={8} border={1} borderColor={C.accentHi}>
+                    <view p={6} bg={C.accent} rounded={6} display="flex" items="center" justify="center">
+                      <text fontSize={12} fontWeight={700} color="#fff">6 levels</text>
+                    </view>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+
+        <Divider />
+
+        <view display="flex" flexDir="col" gap={10}>
+          <view display="flex" flexDir="row" items="center" gap={12}>
+            <text fontSize={14} fontWeight={700} color={C.text}>visible prop</text>
+            <button
+              onClick={() => setShowHidden(s => !s)}
+              px={14}
+              py={6}
+              bg={showHidden ? C.greenDim : C.surface3}
+              hover:bg={showHidden ? '#16653a' : C.surface4}
+              rounded={8}
+              border={1}
+              borderColor={showHidden ? C.green : C.border}
+              cursor="pointer"
+            >
+              <text fontSize={12} fontWeight={600} color={showHidden ? C.greenHi : C.textMuted}>
+                {showHidden ? 'Hide it' : 'Reveal it'}
+              </text>
+            </button>
+          </view>
+          <view visibility={showHidden ? "visible" : "hidden"} p={14} bg={C.accentDark} rounded={10} border={1} borderColor={C.accent}>
+            <text fontSize={14} color={C.accentHi} fontWeight={600}>👁 Now you see me! (visibility)</text>
+          </view>
+          <view visibility={!showHidden ? "visible" : "hidden"} p={14} bg={C.surface2} rounded={10} border={1} borderColor={C.border}>
+            <text fontSize={14} color={C.textMuted}>Click the button to toggle visibility. It should appear above this text.</text>
+          </view>
+        </view>
+
+        <view display="flex" flexDir="col" gap={10}>
+          <view display="flex" flexDir="row" items="center" gap={12}>
+            <text fontSize={14} fontWeight={700} color={C.text}>display prop (fallback)</text>
+            <button
+              onClick={() => setShowHidden(s => !s)}
+              px={14}
+              py={6}
+              bg={showHidden ? C.blueDim : C.surface3}
+              hover:bg={showHidden ? '#165178' : C.surface4}
+              rounded={8}
+              border={1}
+              borderColor={showHidden ? C.blue : C.border}
+              cursor="pointer"
+            >
+              <text fontSize={12} fontWeight={600} color={showHidden ? C.blueHi : C.textMuted}>
+                {showHidden ? 'Hide it' : 'Show it'}
+              </text>
+            </button>
+          </view>
+          <view display={showHidden ? 'flex' : 'none'} p={14} bg={C.blueDark} rounded={10} border={1} borderColor={C.blue}>
+            <text fontSize={14} color={C.blueHi} fontWeight={600}>👁 Now you see me via display!</text>
+          </view>
+          <view display={!showHidden ? 'flex' : 'none'} p={14} bg={C.surface2} rounded={10} border={1} borderColor={C.border}>
+            <text fontSize={14} color={C.textMuted}>Click the button to toggle with display. It should replace this text.</text>
+          </view>
+        </view>
+
+      </view>
+    </view>
+  );
+}
