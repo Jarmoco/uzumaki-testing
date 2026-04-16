@@ -18,9 +18,6 @@ export function InputsPage() {
     <view display="flex" flexDir="col" gap={0} h="full" scrollable>
       <view display='flex' flexDir='col' px={24} py={16} borderBottom={1} borderColor={C.border}>
         <text fontSize={20} fontWeight={800} color={C.text}>Input Lab</text>
-        <text fontSize={12} color={C.textMuted}>
-          Testing issues: #6 (Better input) · #8 (focus element) · #10 (IME)
-        </text>
       </view>
 
       <view display="flex" flexDir="col" gap={20} p={24}>
@@ -206,7 +203,6 @@ export function InputsPage() {
         <view display="flex" flexDir="col" gap={8}>
           <view display="flex" flexDir="row" items="center" gap={8}>
             <text fontSize={13} fontWeight={600} color={C.textSub}>Selectable Text Block</text>
-            <Badge label="ISSUE #8" color={C.yellowHi} bg="#422006" />
           </view>
           <view
             selectable

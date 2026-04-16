@@ -42,7 +42,7 @@ export function StressPage() {
       <view display="flex" flexDir="col" px={24} py={16} borderBottom={1} borderColor={C.border}>
         <text fontSize={20} fontWeight={800} color={C.text}>Stress Test</text>
         <text fontSize={12} color={C.textMuted}>
-          High-frequency updates · Large node counts · cursor kinds (issue #11)
+          High-frequency updates · Large node counts · cursor kinds
         </text>
       </view>
 
@@ -104,7 +104,6 @@ export function StressPage() {
         <view display="flex" flexDir="col" gap={10}>
           <view display="flex" flexDir="row" items="center" gap={8}>
             <text fontSize={14} fontWeight={700} color={C.text}>Cursor kinds</text>
-            <Badge label="ISSUE: inner text overrides the parent cursor type to 'text' despite not being an input" color={C.yellowHi} bg="#422006" />
           </view>
           <view display="flex" flexDir="row" gap={8}>
             {(

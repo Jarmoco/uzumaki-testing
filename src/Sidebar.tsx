@@ -1,13 +1,13 @@
 import { C } from './theme';
 import { Tab } from './types';
 
-const TABS: { id: Tab; label: string; icon: string; issue?: string }[] = [
+const TABS: { id: Tab; label: string; icon: string; }[] = [
   { id: 'dashboard', label: 'Dashboard',      icon: '⬡' },
-  { id: 'inputs',    label: 'Input Lab',      icon: '⌨', issue: '#6 #8 #10' },
+  { id: 'inputs',    label: 'Input Lab',      icon: '⌨' },
   { id: 'layout',    label: 'Layout Lab',     icon: '⊞' },
-  { id: 'stress',    label: 'Stress Test',    icon: '⚡', issue: '#11' },
+  { id: 'stress',    label: 'Stress Test',    icon: '⚡' },
   { id: 'events',    label: 'Event Monitor',  icon: '◎' },
-  { id: 'issues',    label: 'GitHub Issues',  icon: '☰', issue: 'table test' },
+  { id: 'issues',    label: 'GitHub Issues',  icon: '☰' },
 ];
 
 export function Sidebar({
@@ -64,11 +64,6 @@ export function Sidebar({
                 >
                   {t.label}
                 </text>
-                {t.issue && (
-                  <text fontSize={9} color={isActive ? C.accentHi : C.textMuted} fontWeight={600}>
-                    {t.issue}
-                  </text>
-                )}
               </view>
               {isActive && (
                 <view w={4} h={4} bg={C.accentHi} rounded={2} />
