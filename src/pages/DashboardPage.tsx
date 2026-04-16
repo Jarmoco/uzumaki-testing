@@ -144,20 +144,22 @@ export function DashboardPage() {
             display="flex" flexDir="col" gap={12}
           >
             <text fontSize={14} fontWeight={700} color={C.text}>CPU Bars (last 20 ticks)</text>
-            <view display="flex" flexDir="row" gap={3} items="end" h={80}>
+            <view display="flex" flexDir="row" flex={1} gap={1} h={80}>
               {Array.from({ length: 20 }, (_, i) => {
                 const age = 19 - i;
                 const h = 20 + Math.abs(Math.sin((tick - age) * 0.7 + i) * 60);
                 const isHot = h > 65;
+                const barHeight = Math.round(h / 100 * 80);
                 return (
-                  <view
-                    key={i}
-                    flex={1}
-                    h={`${h}%`}
-                    bg={isHot ? C.danger : age < 3 ? C.accentHi : C.accentDim}
-                    rounded={2}
-                    opacity={1 - age * 0.03}
-                  />
+                  <view key={i} display="flex" flexDir="col" justify="end" w="5%" h="full">
+                    <view
+                      w="full"
+                      h={barHeight}
+                      bg={isHot ? C.danger : age < 3 ? C.accentHi : C.accentDim}
+                      rounded={2}
+                      opacity={1 - age * 0.03}
+                    />
+                  </view>
                 );
               })}
             </view>
