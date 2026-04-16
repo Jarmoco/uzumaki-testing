@@ -18,7 +18,7 @@ export function EventsPage() {
   }, []);
 
   const typeColor = (t: string) =>
-    t === 'onClick' ? C.accentHi : t === 'onMouseDown' ? C.blueHi : C.greenHi;
+    t === 'onClick' ? C.accentHi : t === 'onMouseDown' ? C.primaryHi : C.successHi;
 
   return (
     <view display="flex" flexDir="col" gap={0} h="full" scrollable>
@@ -63,9 +63,9 @@ export function EventsPage() {
         <view display="flex" flexDir="row" gap={12}>
           {[
             { label: 'onClick',      count: clicks, color: C.accentHi, bg: C.accentDark },
-            { label: 'onMouseDown',  count: downs,  color: C.blueHi,   bg: C.blueDim   },
-            { label: 'onMouseUp',    count: ups,    color: C.greenHi,  bg: C.greenDim  },
-            { label: 'Total Events', count: seq,    color: C.orangeHi, bg: '#431407'   },
+            { label: 'onMouseDown',  count: downs,  color: C.primaryHi,   bg: C.primaryDim   },
+            { label: 'onMouseUp',    count: ups,    color: C.successHi,  bg: C.successDim  },
+            { label: 'Total Events', count: seq,    color: C.warningHi, bg: C.warningDim   },
           ].map(({ label, count, color, bg }) => (
             <view
               key={label}
@@ -93,8 +93,8 @@ export function EventsPage() {
           <view display="flex" flexDir="row" gap={10}>
             {[
               { label: 'hover:bg',      props: { bg: C.surface2, 'hover:bg': C.accent  } },
-              { label: 'hover:opacity', props: { bg: C.blue, 'hover:opacity': 0.4 } },
-              { label: 'active:bg',     props: { bg: C.surface2, 'active:bg': C.green } },
+              { label: 'hover:opacity', props: { bg: C.primary, 'hover:opacity': 0.4, color: C.textDim } },
+              { label: 'active:bg',     props: { bg: C.surface2, 'active:bg': C.success } },
               { label: 'all',           props: {
                 bg: C.surface2, 'hover:bg': C.surface3,
                 'active:bg': C.accentDim,
@@ -102,7 +102,10 @@ export function EventsPage() {
                 'hover:borderColor': C.accentHi,
                 'active:borderColor': C.accentHi,
               }},
-            ].map(({ label, props }) => (
+            ].map(({ label, props }) => {
+              const txtColor = label === 'hover:opacity' ? C.textDim : C.textSub;
+              const hoverTxtColor = '#000';
+              return (
               <view
                 key={label}
                 flex={1}
@@ -114,9 +117,10 @@ export function EventsPage() {
                 justify="center"
                 {...props}
               >
-                <text fontSize={12} color={C.textSub} hover:color={C.text}>{label}</text>
+                <text fontSize={12} color={txtColor} hover:color={hoverTxtColor}>{label}</text>
               </view>
-            ))}
+              );
+            })}
           </view>
         </view>
 
@@ -129,14 +133,14 @@ export function EventsPage() {
             <button
               onClick={() => { setEventLog([]); setClicks(0); setDowns(0); setUps(0); setSeq(0); }}
               px={12} py={5}
-              bg={C.redDim}
+              bg={C.dangerDim}
               hover:bg="#991b1b"
               rounded={8}
               cursor="pointer"
               border={1}
-              borderColor={C.red}
+              borderColor={C.danger}
             >
-              <text fontSize={12} fontWeight={600} color={C.redHi}>Reset</text>
+              <text fontSize={12} fontWeight={600} color={C.dangerHi}>Reset</text>
             </button>
           </view>
           <view scrollable h={220} display='flex' flexDir='col' >

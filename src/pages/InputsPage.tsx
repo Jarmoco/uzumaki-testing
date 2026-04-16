@@ -43,7 +43,7 @@ export function InputsPage() {
               bg={search.length > 0 ? C.accentDark : C.surface3}
             />
             {search.length > 20 && (
-              <Badge label="LONG QUERY" color={C.orangeHi} bg="#431407" />
+              <Badge label="LONG QUERY" color={C.warningHi} bg={C.warningDark} />
             )}
           </view>
         </view>
@@ -116,18 +116,18 @@ export function InputsPage() {
               p={12}
               rounded={10}
               border={1}
-              borderColor={pwMismatch ? C.red : pwMatch ? C.green : C.border}
+              borderColor={pwMismatch ? C.danger : pwMatch ? C.success : C.border}
               w="full"
             />
-            {pwMismatch && <text fontSize={11} color={C.red}>Passwords don't match</text>}
-            {pwMatch    && <text fontSize={11} color={C.green}>✓ Passwords match</text>}
+            {pwMismatch && <text fontSize={11} color={C.danger}>Passwords don't match</text>}
+            {pwMatch    && <text fontSize={11} color={C.success}>✓ Passwords match</text>}
           </view>
         </view>
 
         <view display="flex" flexDir="col" gap={8}>
           <view display="flex" flexDir="row" items="center" justify="between">
             <text fontSize={13} fontWeight={600} color={C.textSub}>Bio (multiline)</text>
-            <text fontSize={11} color={bio.length > 200 ? C.red : C.textMuted}>
+            <text fontSize={11} color={bio.length > 200 ? C.danger : C.textMuted}>
               {bio.length}/300
             </text>
           </view>
@@ -142,7 +142,7 @@ export function InputsPage() {
             p={12}
             rounded={10}
             border={1}
-            borderColor={bio.length > 200 ? C.orange : C.border}
+            borderColor={bio.length > 200 ? C.warning : C.border}
             w="full"
             h={110}
           />
@@ -154,8 +154,8 @@ export function InputsPage() {
             px={24}
             py={12}
             bg={C.accent}
-            hover:bg="#6d28d9"
-            active:bg="#5b21b6"
+            hover:bg={C.warning}
+            active:bg={C.warningDark}
             rounded={10}
             cursor="pointer"
           >
@@ -183,16 +183,16 @@ export function InputsPage() {
         {submitted && (
           <view
             p={16}
-            bg={C.greenDim}
+            bg={C.successDim}
             rounded={10}
             border={1}
-            borderColor={C.green}
+            borderColor={C.success}
             display="flex"
             flexDir="col"
             gap={4}
           >
-            <text fontSize={14} fontWeight={700} color={C.greenHi}>✓ Form submitted</text>
-            <text fontSize={12} color={C.green}>
+            <text fontSize={14} fontWeight={700} color={C.successHi}>✓ Form submitted</text>
+            <text fontSize={12} color={C.success}>
               user={username || '(empty)'} · email={email || '(empty)'} · bio={bio.length} chars
             </text>
           </view>

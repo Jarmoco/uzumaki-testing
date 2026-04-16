@@ -61,9 +61,9 @@ export function DashboardPage() {
           </view>
         </view>
         <view display="flex" flexDir="row" items="center" gap={10}>
-          <view display="flex" flexDir="row" items="center" gap={6} px={12} py={6} bg={C.greenDim} rounded={20}>
-            <text fontSize={14} color={C.green} opacity={blink ? 1 : 0.3}>{spinChar}</text>
-            <text fontSize={12} fontWeight={600} color={C.greenHi}>LIVE</text>
+          <view display="flex" flexDir="row" items="center" gap={6} px={12} py={6} bg={C.successDim} rounded={20}>
+            <text fontSize={14} color={C.success} opacity={blink ? 1 : 0.3}>{spinChar}</text>
+            <text fontSize={12} fontWeight={600} color={C.successHi}>LIVE</text>
           </view>
           <view px={12} py={6} bg={C.surface3} rounded={20} border={1} borderColor={C.border}>
             <text fontSize={12} color={C.textMuted}>tick #{tick} · frame ~{tick * fps}</text>
@@ -83,19 +83,19 @@ export function DashboardPage() {
             label="React Nodes"
             value={`${148 + (tick % 12)}`}
             sub="in tree"
-            color={C.blueHi}
+            color={C.primaryHi}
           />
           <StatCard
             label="Heap Used"
             value={`${(mem * 0.72).toFixed(1)} MB`}
             sub="managed runtime"
-            color={C.greenHi}
+            color={C.successHi}
           />
           <StatCard
             label="Events Fired"
             value={`${(tick * 6).toLocaleString()}`}
             sub="total dispatched"
-            color={C.orangeHi}
+            color={C.warningHi}
           />
         </view>
 
@@ -109,25 +109,25 @@ export function DashboardPage() {
             <ProgressBar
               label="CPU"
               value={cpu}
-              color={cpu > 80 ? C.red : cpu > 60 ? C.orange : C.accentHi}
+              color={cpu > 80 ? C.danger : cpu > 60 ? C.warning : C.accentHi}
               trackColor={C.surface4}
             />
             <ProgressBar
               label="Memory"
               value={mem}
-              color={mem > 80 ? C.red : C.blue}
+              color={mem > 80 ? C.danger : C.primary}
               trackColor={C.surface4}
             />
             <ProgressBar
               label="Network I/O"
               value={net}
-              color={C.green}
+              color={C.success}
               trackColor={C.surface4}
             />
             <ProgressBar
               label="GPU"
               value={gpu}
-              color={gpu > 85 ? C.orange : C.yellow}
+              color={gpu > 85 ? C.warning : C.primary}
               trackColor={C.surface4}
             />
             <ProgressBar
@@ -154,7 +154,7 @@ export function DashboardPage() {
                     key={i}
                     flex={1}
                     h={`${h}%`}
-                    bg={isHot ? C.red : age < 3 ? C.accentHi : C.accentDim}
+                    bg={isHot ? C.danger : age < 3 ? C.accentHi : C.accentDim}
                     rounded={2}
                     opacity={1 - age * 0.03}
                   />
@@ -165,11 +165,11 @@ export function DashboardPage() {
             <view display="flex" flexDir="col" gap={8}>
               <view display="flex" flexDir="row" items="center" justify="between">
                 <text fontSize={12} color={C.textMuted}>Current</text>
-                <text fontSize={13} fontWeight={700} color={cpu > 80 ? C.redHi : C.accentHi}>{cpu.toFixed(1)}%</text>
+                <text fontSize={13} fontWeight={700} color={cpu > 80 ? C.dangerHi : C.accentHi}>{cpu.toFixed(1)}%</text>
               </view>
               <view display="flex" flexDir="row" items="center" justify="between">
                 <text fontSize={12} color={C.textMuted}>Peak</text>
-                <text fontSize={13} fontWeight={700} color={C.orange}>97.3%</text>
+                <text fontSize={13} fontWeight={700} color={C.warning}>97.3%</text>
               </view>
               <view display="flex" flexDir="row" items="center" justify="between">
                 <text fontSize={12} color={C.textMuted}>Avg</text>
@@ -182,7 +182,7 @@ export function DashboardPage() {
         <view display="flex" flexDir='col' p={20} bg={C.surface} rounded={12} border={1} borderColor={C.border}>
           <view display="flex" flexDir="row" items="center" justify="between" mb={12}>
             <text fontSize={14} fontWeight={700} color={C.text}>Render Event Log</text>
-            <Badge label="STREAMING" color={C.greenHi} bg={C.greenDim} />
+            <Badge label="STREAMING" color={C.successHi} bg={C.successDim} />
           </view>
           <view scrollable h={160} overflowX="hidden" display='flex' flexDir='col'>
             {log.map((ev, i) => (
@@ -200,10 +200,10 @@ export function DashboardPage() {
                 <text fontSize={10} color={C.textMuted} fontWeight={700}>
                   {String(log.length - i).padStart(3, '0')}
                 </text>
-                <view w={6} h={6} bg={i === 0 ? C.green : C.surface4} rounded={3} />
+                <view w={6} h={6} bg={i === 0 ? C.success : C.surface4} rounded={3} />
                 <text
                   fontSize={12}
-                  color={i === 0 ? C.greenHi : C.textMuted}
+                  color={i === 0 ? C.successHi : C.textMuted}
                   fontWeight={i === 0 ? 600 : 400}
                 >
                   {ev}

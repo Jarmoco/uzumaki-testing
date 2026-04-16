@@ -40,12 +40,12 @@ export function IssuesPage() {
     { key: 'state', header: 'State', width: 70, align: 'center' as const, render: (row: GitHubIssue) => (
       <Badge 
         label={row.state.toUpperCase()} 
-        color={row.state === 'open' ? C.greenHi : C.textMuted} 
-        bg={row.state === 'open' ? C.greenDim : C.surface3} 
+        color={row.state === 'open' ? C.successHi : C.textMuted} 
+        bg={row.state === 'open' ? C.successDim : C.surface3} 
       />
     )},
     { key: 'user', header: 'Author', width: 100, align: 'end' as const, render: (row: GitHubIssue) => (
-      <text fontSize={12} color={C.blueHi}>{row.user.login}</text>
+      <text fontSize={12} color={C.primaryHi}>{row.user.login}</text>
     )},
     { key: 'comments', header: 'Comments', width: 70, align: 'end' as const },
     { key: 'created_at', header: 'Created', width: 90, align: 'end' as const, render: (row: GitHubIssue) => (
@@ -74,8 +74,8 @@ export function IssuesPage() {
         )}
 
         {error && (
-          <view p={20} bg={C.redDim} rounded={10} border={1} borderColor={C.red}>
-            <text fontSize={14} color={C.redHi}>Error: {error}</text>
+          <view p={20} bg={C.dangerDim} rounded={10} border={1} borderColor={C.danger}>
+            <text fontSize={14} color={C.dangerHi}>Error: {error}</text>
           </view>
         )}
 

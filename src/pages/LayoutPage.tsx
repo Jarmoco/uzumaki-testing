@@ -33,7 +33,7 @@ export function LayoutPage() {
                 border={1}
                 borderColor={C.border}
               >
-                {[C.accentHi, C.blueHi, C.greenHi, C.orangeHi].map((c, i) => (
+                {[C.accentHi, C.primaryHi, C.successHi, C.warningHi].map((c, i) => (
                   <view key={i} w={36} h={36} bg={c} rounded={6} />
                 ))}
               </view>
@@ -64,14 +64,14 @@ export function LayoutPage() {
                   {a === 'stretch' ? (
                     <>
                       <view w={24} bg={C.accentHi} rounded={4} />
-                      <view w={24} bg={C.blueHi} rounded={4} />
-                      <view w={24} bg={C.greenHi} rounded={4} />
+                      <view w={24} bg={C.primaryHi} rounded={4} />
+                      <view w={24} bg={C.successHi} rounded={4} />
                     </>
                   ) : (
                     <>
                       <view w={24} h={24} bg={C.accentHi} rounded={4} />
-                      <view w={24} h={36} bg={C.blueHi} rounded={4} />
-                      <view w={24} h={16} bg={C.greenHi} rounded={4} />
+                      <view w={24} h={36} bg={C.primaryHi} rounded={4} />
+                      <view w={24} h={16} bg={C.successHi} rounded={4} />
                     </>
                   )}
                 </view>
@@ -90,23 +90,23 @@ export function LayoutPage() {
               <text fontSize={10} color={C.textMuted}>TL</text>
             </view>
             <view display="flex" flexDir="col" items="center" gap={4}>
-              <view w={60} h={60} bg={C.blue} roundedTR={24} />
+              <view w={60} h={60} bg={C.primary} roundedTR={24} />
               <text fontSize={10} color={C.textMuted}>TR</text>
             </view>
             <view display="flex" flexDir="col" items="center" gap={4}>
-              <view w={60} h={60} bg={C.green} roundedBR={24} />
+              <view w={60} h={60} bg={C.success} roundedBR={24} />
               <text fontSize={10} color={C.textMuted}>BR</text>
             </view>
             <view display="flex" flexDir="col" items="center" gap={4}>
-              <view w={60} h={60} bg={C.orange} roundedBL={24} />
+              <view w={60} h={60} bg={C.warning} roundedBL={24} />
               <text fontSize={10} color={C.textMuted}>BL</text>
             </view>
             <view display="flex" flexDir="col" items="center" gap={4}>
-              <view w={60} h={60} bg={C.yellow} roundedTL={24} roundedBR={24} />
+              <view w={60} h={60} bg={C.accent} roundedTL={24} roundedBR={24} />
               <text fontSize={10} color={C.textMuted}>TL+BR</text>
             </view>
             <view display="flex" flexDir="col" items="center" gap={4}>
-              <view w={60} h={60} bg={C.red} roundedTR={24} roundedBL={24} />
+              <view w={60} h={60} bg={C.danger} roundedTR={24} roundedBL={24} />
               <text fontSize={10} color={C.textMuted}>TR+BL</text>
             </view>
           </view>
@@ -119,10 +119,10 @@ export function LayoutPage() {
           <view display="flex" flexDir="row" gap={12} items="center">
             {[
               { side: 'Top',    prop: { borderTop: 3    }, color: C.accentHi },
-              { side: 'Right',  prop: { borderRight: 3  }, color: C.blueHi  },
-              { side: 'Bottom', prop: { borderBottom: 3 }, color: C.greenHi },
-              { side: 'Left',   prop: { borderLeft: 3   }, color: C.orangeHi},
-              { side: 'All',    prop: { border: 2        }, color: C.yellowHi},
+              { side: 'Right',  prop: { borderRight: 3  }, color: C.primaryHi  },
+              { side: 'Bottom', prop: { borderBottom: 3 }, color: C.successHi },
+              { side: 'Left',   prop: { borderLeft: 3   }, color: C.warningHi},
+              { side: 'All',    prop: { border: 2        }, color: C.accentHi},
             ].map(({ side, prop, color }) => (
               <view key={side} display="flex" flexDir="col" items="center" gap={4}>
                 <view
@@ -191,7 +191,7 @@ export function LayoutPage() {
               >
                 <text fontSize={13} color={C.text}>p−</text>
               </button>
-              <text fontSize={12} color={C.blueHi}>p={padding}</text>
+              <text fontSize={12} color={C.primaryHi}>p={padding}</text>
               <button
                 onClick={() => setPadding(p => Math.min(40, p + 4))}
                 px={10} py={4} bg={C.surface3} hover:bg={C.surface4} rounded={6}
@@ -207,7 +207,7 @@ export function LayoutPage() {
                 key={l}
                 flex={1}
                 p={padding}
-                bg={[C.accentDim, C.blueDim, C.greenDim, '#422006', C.redDim][i]}
+                bg={[C.accentDim, C.primaryDim, C.successDim, '#422006', C.dangerDim][i]}
                 rounded={8}
                 display="flex"
                 items="center"
@@ -225,8 +225,8 @@ export function LayoutPage() {
           <text fontSize={14} fontWeight={700} color={C.text}>Deep nesting (6 levels)</text>
           <view p={16} bg={C.surface2} rounded={16} border={1} borderColor={C.border}>
             <view p={14} bg={C.surface3} rounded={14} border={1} borderColor={C.borderHi}>
-              <view p={12} bg="#1a1a2e" rounded={12} border={1} borderColor="#3a2a5a">
-                <view p={10} bg="#1e0a3c" rounded={10} border={1} borderColor={C.accent}>
+              <view p={12} bg={C.surface4} rounded={12} border={1} borderColor={C.primaryDim}>
+                <view p={10} bg={C.accentDark} rounded={10} border={1} borderColor={C.accent}>
                   <view p={8} bg={C.accentDim} rounded={8} border={1} borderColor={C.accentHi}>
                     <view p={6} bg={C.accent} rounded={6} display="flex" items="center" justify="center">
                       <text fontSize={12} fontWeight={700} color="#fff">6 levels</text>
@@ -247,14 +247,14 @@ export function LayoutPage() {
               onClick={() => setShowHidden(s => !s)}
               px={14}
               py={6}
-              bg={showHidden ? C.greenDim : C.surface3}
-              hover:bg={showHidden ? '#16653a' : C.surface4}
+              bg={showHidden ? C.accentDim : C.surface3}
+              hover:bg={showHidden ? C.accent : C.surface4}
               rounded={8}
               border={1}
-              borderColor={showHidden ? C.green : C.border}
+              borderColor={showHidden ? C.accent : C.border}
               cursor="pointer"
             >
-              <text fontSize={12} fontWeight={600} color={showHidden ? C.greenHi : C.textMuted}>
+              <text fontSize={12} fontWeight={600} color={showHidden ? C.accentHi : C.textMuted}>
                 {showHidden ? 'Hide it' : 'Reveal it'}
               </text>
             </button>
@@ -274,20 +274,20 @@ export function LayoutPage() {
               onClick={() => setShowHidden(s => !s)}
               px={14}
               py={6}
-              bg={showHidden ? C.blueDim : C.surface3}
-              hover:bg={showHidden ? '#165178' : C.surface4}
+              bg={showHidden ? C.accentDim : C.surface3}
+              hover:bg={showHidden ? C.accent : C.surface4}
               rounded={8}
               border={1}
-              borderColor={showHidden ? C.blue : C.border}
+              borderColor={showHidden ? C.accent : C.border}
               cursor="pointer"
             >
-              <text fontSize={12} fontWeight={600} color={showHidden ? C.blueHi : C.textMuted}>
+              <text fontSize={12} fontWeight={600} color={showHidden ? C.accentHi : C.textMuted}>
                 {showHidden ? 'Hide it' : 'Show it'}
               </text>
             </button>
           </view>
-          <view display={showHidden ? 'flex' : 'none'} p={14} bg={C.blueDark} rounded={10} border={1} borderColor={C.blue}>
-            <text fontSize={14} color={C.blueHi} fontWeight={600}>👁 Now you see me via display!</text>
+          <view display={showHidden ? 'flex' : 'none'} p={14} bg={C.primaryDark} rounded={10} border={1} borderColor={C.primary}>
+            <text fontSize={14} color={C.primaryHi} fontWeight={600}>👁 Now you see me via display!</text>
           </view>
           <view display={!showHidden ? 'flex' : 'none'} p={14} bg={C.surface2} rounded={10} border={1} borderColor={C.border}>
             <text fontSize={14} color={C.textMuted}>Click the button to toggle with display. It should replace this text.</text>
