@@ -66,34 +66,34 @@ export function StressPage() {
             display="flex" flexDir="col" gap={10}
           >
             <text fontSize={12} color={C.textMuted} fontWeight={600}>PULSE BAR</text>
-            <view w="full" h={10} bg={C.surface4} rounded={5}>
+            <view w="95%" h={10} bg={C.surface4} rounded={5}>
               <view
                 h={10}
-                w={`${50 + Math.sin(fastTick * 0.3) * 45}%`}
+                w={`${Math.min(80, Math.max(5, 50 + Math.sin(fastTick * 0.3) * 45))}%`}
                 bg={C.accent}
                 rounded={5}
               />
             </view>
-            <view w="full" h={10} bg={C.surface4} rounded={5}>
+            <view w="95%" h={10} bg={C.surface4} rounded={5}>
               <view
                 h={10}
-                w={`${50 + Math.cos(fastTick * 0.2) * 45}%`}
+                w={`${Math.min(80, Math.max(5, 50 + Math.cos(fastTick * 0.2) * 45))}%`}
                 bg={C.blue}
                 rounded={5}
               />
             </view>
-            <view w="full" h={10} bg={C.surface4} rounded={5}>
+            <view w="95%" h={10} bg={C.surface4} rounded={5}>
               <view
                 h={10}
-                w={`${50 + Math.sin(fastTick * 0.5 + 1) * 45}%`}
+                w={`${Math.min(80, Math.max(5, 50 + Math.sin(fastTick * 0.5 + 1) * 45))}%`}
                 bg={C.green}
                 rounded={5}
               />
             </view>
-            <view w="full" h={10} bg={C.surface4} rounded={5}>
+            <view w="95%" h={10} bg={C.surface4} rounded={5}>
               <view
                 h={10}
-                w={`${50 + Math.cos(fastTick * 0.4 + 2) * 45}%`}
+                w={`${Math.min(80, Math.max(5, 50 + Math.cos(fastTick * 0.4 + 2) * 45))}%`}
                 bg={C.orange}
                 rounded={5}
               />
@@ -153,27 +153,16 @@ export function StressPage() {
               </button>
             </view>
           </view>
-          <view display="flex" flexDir="row" gap={4} scrollable h={200}>
-            <view display="flex" flexDir="row" gap={4}>
-              {tileColors.map((col, i) => (
-                <view
-                  key={i}
-                  onClick={() => setClickCount(c => c + 1)}
-                  w={32}
-                  h={32}
-                  bg={col}
-                  rounded={5}
-                  cursor="pointer"
-                  hover:opacity={0.7}
-                  active:opacity={0.4}
-                  display="flex"
-                  items="center"
-                  justify="center"
-                >
-                  <text fontSize={8} fontWeight={800} color="#fff" opacity={0.5}>{i}</text>
-                </view>
-              ))}
-            </view>
+          <view display="flex" flexDir="col" gap={4} scrollable h={300}>
+            {Array.from({ length: Math.ceil(tileColors.length / 16) }, (_, rowIdx) => (
+              <view key={rowIdx} display="flex" flexDir="row" gap={4}>
+                {tileColors.slice(rowIdx * 16, (rowIdx + 1) * 16).map((col, i) => (
+                  <view key={rowIdx * 16 + i} w={32} h={32} bg={col} rounded={5} cursor="pointer" onClick={() => setClickCount(c => c + 1)}>
+                    <text fontSize={8} fontWeight={800} color="#fff" opacity={0.5}>{rowIdx * 16 + i}</text>
+                  </view>
+                ))}
+              </view>
+            ))}
           </view>
         </view>
 
