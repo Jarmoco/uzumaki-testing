@@ -6,7 +6,7 @@ export function Divider() {
 
 export function Badge({ label, color, bg }: { label: string; color: string; bg: string }) {
   return (
-    <view px={8} py={3} bg={bg} rounded={20}>
+    <view px={8} py={3} bg={bg} rounded={8}>
       <text fontSize={11} fontWeight={600} color={color}>{label}</text>
     </view>
   );
@@ -24,8 +24,8 @@ export function ProgressBar({
         <text fontSize={12} color={C.textMuted}>{label}</text>
         {showPct && <text fontSize={12} fontWeight={700} color={color}>{pct.toFixed(1)}%</text>}
       </view>
-      <view w="full" h={5} bg={trackColor} rounded={3}>
-        <view w={`${pct}%`} h={5} bg={color} rounded={3} />
+      <view w="full" h={5} bg={trackColor} rounded={4}>
+        <view w={`${pct}%`} h={5} bg={color} rounded={4} />
       </view>
     </view>
   );
@@ -41,7 +41,7 @@ export function StatCard({
       flex={1}
       p={16}
       bg={C.surface2}
-      rounded={12}
+      rounded={8}
       border={1}
       borderColor={C.border}
       display="flex"

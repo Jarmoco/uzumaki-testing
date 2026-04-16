@@ -61,11 +61,11 @@ export function DashboardPage() {
           </view>
         </view>
         <view display="flex" flexDir="row" items="center" gap={10}>
-          <view display="flex" flexDir="row" items="center" gap={6} px={12} py={6} bg={C.successDim} rounded={20}>
+          <view display="flex" flexDir="row" items="center" gap={6} px={12} py={6} bg={C.successDim} rounded={8}>
             <text fontSize={14} color={C.success} opacity={blink ? 1 : 0.3}>{spinChar}</text>
             <text fontSize={12} fontWeight={600} color={C.successHi}>LIVE</text>
           </view>
-          <view px={12} py={6} bg={C.surface3} rounded={20} border={1} borderColor={C.border}>
+          <view px={12} py={6} bg={C.surface3} rounded={8} border={1} borderColor={C.border}>
             <text fontSize={12} color={C.textMuted}>tick #{tick} · frame ~{tick * fps}</text>
           </view>
         </view>
@@ -101,7 +101,7 @@ export function DashboardPage() {
 
         <view display="flex" flexDir="row" gap={12}>
           <view
-            flex={3} p={20} bg={C.surface2} rounded={12}
+            flex={3} p={20} bg={C.surface2} rounded={8}
             border={1} borderColor={C.border}
             display="flex" flexDir="col" gap={16}
           >
@@ -139,7 +139,7 @@ export function DashboardPage() {
           </view>
 
           <view
-            flex={2} p={20} bg={C.surface2} rounded={12}
+            flex={2} p={20} bg={C.surface2} rounded={8}
             border={1} borderColor={C.border}
             display="flex" flexDir="col" gap={12}
           >
@@ -156,7 +156,7 @@ export function DashboardPage() {
                       w="full"
                       h={barHeight}
                       bg={isHot ? C.danger : age < 3 ? C.accentHi : C.accentDim}
-                      rounded={2}
+                      rounded={4}
                       opacity={1 - age * 0.03}
                     />
                   </view>
@@ -181,7 +181,7 @@ export function DashboardPage() {
           </view>
         </view>
 
-        <view display="flex" flexDir='col' p={20} bg={C.surface} rounded={12} border={1} borderColor={C.border}>
+        <view display="flex" flexDir='col' p={20} bg={C.surface} rounded={8} border={1} borderColor={C.border}>
           <view display="flex" flexDir="row" items="center" justify="between" mb={12}>
             <text fontSize={14} fontWeight={700} color={C.text}>Render Event Log</text>
             <Badge label="STREAMING" color={C.successHi} bg={C.successDim} />
@@ -202,7 +202,7 @@ export function DashboardPage() {
                 <text fontSize={10} color={C.textMuted} fontWeight={700}>
                   {String(log.length - i).padStart(3, '0')}
                 </text>
-                <view w={6} h={6} bg={i === 0 ? C.success : C.surface4} rounded={3} />
+                <view w={6} h={6} bg={i === 0 ? C.success : C.surface4} rounded={4} />
                 <text
                   fontSize={12}
                   color={i === 0 ? C.successHi : C.textMuted}

@@ -48,7 +48,7 @@ export function StressPage() {
 
         <view display="flex" flexDir="row" gap={12}>
           <view
-            flex={1} p={20} bg={C.surface2} rounded={12}
+            flex={1} p={20} bg={C.surface2} rounded={8}
             border={1} borderColor={C.border}
             display="flex" flexDir="col" gap={4}
           >
@@ -59,41 +59,41 @@ export function StressPage() {
             <text fontSize={12} color={C.textMuted}>{(fastTick / 16).toFixed(2)}s · ~{fastTick * 16} renders</text>
           </view>
           <view
-            flex={2} p={20} bg={C.surface2} rounded={12}
+            flex={2} p={20} bg={C.surface2} rounded={8}
             border={1} borderColor={C.border}
             display="flex" flexDir="col" gap={10}
           >
             <text fontSize={12} color={C.textMuted} fontWeight={600}>PULSE BAR</text>
-            <view w="95%" h={10} bg={C.surface4} rounded={5}>
+            <view w="95%" h={10} bg={C.surface4} rounded={4}>
               <view
                 h={10}
                 w={`${Math.min(80, Math.max(5, 50 + Math.sin(fastTick * 0.3) * 45))}%`}
                 bg={C.accent}
-                rounded={5}
+                rounded={4}
               />
             </view>
-            <view w="95%" h={10} bg={C.surface4} rounded={5}>
+            <view w="95%" h={10} bg={C.surface4} rounded={4}>
               <view
                 h={10}
                 w={`${Math.min(80, Math.max(5, 50 + Math.cos(fastTick * 0.2) * 45))}%`}
                 bg={C.primary}
-                rounded={5}
+                rounded={4}
               />
             </view>
-            <view w="95%" h={10} bg={C.surface4} rounded={5}>
+            <view w="95%" h={10} bg={C.surface4} rounded={4}>
               <view
                 h={10}
                 w={`${Math.min(80, Math.max(5, 50 + Math.sin(fastTick * 0.5 + 1) * 45))}%`}
                 bg={C.success}
-                rounded={5}
+                rounded={4}
               />
             </view>
-            <view w="95%" h={10} bg={C.surface4} rounded={5}>
+            <view w="95%" h={10} bg={C.surface4} rounded={4}>
               <view
                 h={10}
                 w={`${Math.min(80, Math.max(5, 50 + Math.cos(fastTick * 0.4 + 2) * 45))}%`}
                 bg={C.warning}
-                rounded={5}
+                rounded={4}
               />
             </view>
           </view>
@@ -136,14 +136,14 @@ export function StressPage() {
               <text fontSize={12} color={C.accentHi} fontWeight={700}>{clickCount} clicks</text>
               <button
                 onClick={() => setTileCount(n => Math.min(200, n + 20))}
-                px={10} py={4} bg={C.surface3} hover:bg={C.surface4} rounded={6}
+                px={10} py={4} bg={C.surface3} hover:bg={C.surface4} rounded={4}
                 border={1} borderColor={C.border} cursor="pointer"
               >
                 <text fontSize={12} color={C.success}>+20</text>
               </button>
               <button
                 onClick={() => setTileCount(n => Math.max(20, n - 20))}
-                px={10} py={4} bg={C.surface3} hover:bg={C.surface4} rounded={6}
+                px={10} py={4} bg={C.surface3} hover:bg={C.surface4} rounded={4}
                 border={1} borderColor={C.border} cursor="pointer"
               >
                 <text fontSize={12} color={C.danger}>−20</text>
@@ -154,7 +154,7 @@ export function StressPage() {
             {Array.from({ length: Math.ceil(tileColors.length / 16) }, (_, rowIdx) => (
               <view key={rowIdx} display="flex" flexDir="row" gap={4}>
                 {tileColors.slice(rowIdx * 16, (rowIdx + 1) * 16).map((col, i) => (
-                  <view key={rowIdx * 16 + i} w={32} h={32} bg={col} rounded={5} cursor="pointer" onClick={() => setClickCount(c => c + 1)}>
+                  <view key={rowIdx * 16 + i} w={32} h={32} bg={col} rounded={4} cursor="pointer" onClick={() => setClickCount(c => c + 1)}>
                     <text fontSize={8} fontWeight={800} color="#fff" opacity={0.5}>{rowIdx * 16 + i}</text>
                   </view>
                 ))}
@@ -165,7 +165,7 @@ export function StressPage() {
 
         <view display="flex" flexDir="col" gap={10}>
           <text fontSize={14} fontWeight={700} color={C.text}>Many sibling nodes (40 stat rows)</text>
-          <view display='flex' flexDir='col' bg={C.surface} rounded={12} border={1} borderColor={C.border} scrollable h={200} overflowX="hidden">
+          <view display='flex' flexDir='col' bg={C.surface} rounded={8} border={1} borderColor={C.border} scrollable h={200} overflowX="hidden">
             {Array.from({ length: 40 }, (_, i) => (
               <view
                 key={i}
@@ -196,13 +196,13 @@ export function StressPage() {
                     w={60}
                     h={4}
                     bg={C.surface3}
-                    rounded={2}
+                    rounded={4}
                   >
                     <view
                       h={4}
                       w={`${Math.abs(Math.sin(fastTick * 0.1 + i)) * 100}%`}
                       bg={tileColors[i % tileColors.length] ?? C.accent}
-                      rounded={2}
+                      rounded={4}
                     />
                   </view>
                 </view>

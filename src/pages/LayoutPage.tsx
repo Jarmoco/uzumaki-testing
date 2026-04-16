@@ -34,7 +34,7 @@ export function LayoutPage() {
                 borderColor={C.border}
               >
                 {[C.accentHi, C.primaryHi, C.successHi, C.warningHi].map((c, i) => (
-                  <view key={i} w={36} h={36} bg={c} rounded={6} />
+                  <view key={i} w={36} h={36} bg={c} rounded={4} />
                 ))}
               </view>
             </view>
@@ -150,7 +150,7 @@ export function LayoutPage() {
                   w={52}
                   h={52}
                   bg={C.accent}
-                  rounded={10}
+                  rounded={8}
                   opacity={op}
                   display="flex"
                   items="center"
@@ -171,7 +171,7 @@ export function LayoutPage() {
             <view display="flex" flexDir="row" items="center" gap={8}>
               <button
                 onClick={() => setGap(g => Math.max(2, g - 2))}
-                px={10} py={4} bg={C.surface3} hover:bg={C.surface4} rounded={6}
+                px={10} py={4} bg={C.surface3} hover:bg={C.surface4} rounded={4}
                 border={1} borderColor={C.border} cursor="pointer"
               >
                 <text fontSize={13} color={C.text}>gap−</text>
@@ -179,14 +179,14 @@ export function LayoutPage() {
               <text fontSize={12} color={C.accentHi}>gap={gap}</text>
               <button
                 onClick={() => setGap(g => Math.min(40, g + 2))}
-                px={10} py={4} bg={C.surface3} hover:bg={C.surface4} rounded={6}
+                px={10} py={4} bg={C.surface3} hover:bg={C.surface4} rounded={4}
                 border={1} borderColor={C.border} cursor="pointer"
               >
                 <text fontSize={13} color={C.text}>gap+</text>
               </button>
               <button
                 onClick={() => setPadding(p => Math.max(4, p - 4))}
-                px={10} py={4} bg={C.surface3} hover:bg={C.surface4} rounded={6}
+                px={10} py={4} bg={C.surface3} hover:bg={C.surface4} rounded={4}
                 border={1} borderColor={C.border} cursor="pointer"
               >
                 <text fontSize={13} color={C.text}>p−</text>
@@ -194,14 +194,14 @@ export function LayoutPage() {
               <text fontSize={12} color={C.primaryHi}>p={padding}</text>
               <button
                 onClick={() => setPadding(p => Math.min(40, p + 4))}
-                px={10} py={4} bg={C.surface3} hover:bg={C.surface4} rounded={6}
+                px={10} py={4} bg={C.surface3} hover:bg={C.surface4} rounded={4}
                 border={1} borderColor={C.border} cursor="pointer"
               >
                 <text fontSize={13} color={C.text}>p+</text>
               </button>
             </view>
           </view>
-          <view display="flex" flexDir="row" gap={gap} p={padding} bg={C.surface2} rounded={10} border={1} borderColor={C.border}>
+          <view display="flex" flexDir="row" gap={gap} p={padding} bg={C.surface2} rounded={8} border={1} borderColor={C.border}>
             {['A', 'B', 'C', 'D', 'E'].map((l, i) => (
               <view
                 key={l}
@@ -223,12 +223,12 @@ export function LayoutPage() {
 
         <view display="flex" flexDir="col" gap={12}>
           <text fontSize={14} fontWeight={700} color={C.text}>Deep nesting (6 levels)</text>
-          <view p={16} bg={C.surface2} rounded={16} border={1} borderColor={C.border}>
-            <view p={14} bg={C.surface3} rounded={14} border={1} borderColor={C.borderHi}>
-              <view p={12} bg={C.surface4} rounded={12} border={1} borderColor={C.primaryDim}>
-                <view p={10} bg={C.accentDark} rounded={10} border={1} borderColor={C.accent}>
+          <view p={16} bg={C.surface2} rounded={8} border={1} borderColor={C.border}>
+            <view p={14} bg={C.surface3} rounded={8} border={1} borderColor={C.borderHi}>
+              <view p={12} bg={C.surface4} rounded={8} border={1} borderColor={C.primaryDim}>
+                <view p={10} bg={C.accentDark} rounded={8} border={1} borderColor={C.accent}>
                   <view p={8} bg={C.accentDim} rounded={8} border={1} borderColor={C.accentHi}>
-                    <view p={6} bg={C.accent} rounded={6} display="flex" items="center" justify="center">
+                    <view p={6} bg={C.accent} rounded={4} display="flex" items="center" justify="center">
                       <text fontSize={12} fontWeight={700} color="#fff">6 levels</text>
                     </view>
                   </view>
@@ -259,10 +259,10 @@ export function LayoutPage() {
               </text>
             </button>
           </view>
-          <view visibility={showHidden ? "visible" : "hidden"} p={14} bg={C.accentDark} rounded={10} border={1} borderColor={C.accent}>
+          <view visibility={showHidden ? "visible" : "hidden"} p={14} bg={C.accentDark} rounded={8} border={1} borderColor={C.accent}>
             <text fontSize={14} color={C.accentHi} fontWeight={600}>👁 Now you see me! (visibility)</text>
           </view>
-          <view visibility={!showHidden ? "visible" : "hidden"} p={14} bg={C.surface2} rounded={10} border={1} borderColor={C.border}>
+          <view visibility={!showHidden ? "visible" : "hidden"} p={14} bg={C.surface2} rounded={8} border={1} borderColor={C.border}>
             <text fontSize={14} color={C.textMuted}>Click the button to toggle visibility. It should appear above this text.</text>
           </view>
         </view>
@@ -286,10 +286,10 @@ export function LayoutPage() {
               </text>
             </button>
           </view>
-          <view display={showHidden ? 'flex' : 'none'} p={14} bg={C.primaryDark} rounded={10} border={1} borderColor={C.primary}>
+          <view display={showHidden ? 'flex' : 'none'} p={14} bg={C.primaryDark} rounded={8} border={1} borderColor={C.primary}>
             <text fontSize={14} color={C.primaryHi} fontWeight={600}>👁 Now you see me via display!</text>
           </view>
-          <view display={!showHidden ? 'flex' : 'none'} p={14} bg={C.surface2} rounded={10} border={1} borderColor={C.border}>
+          <view display={!showHidden ? 'flex' : 'none'} p={14} bg={C.surface2} rounded={8} border={1} borderColor={C.border}>
             <text fontSize={14} color={C.textMuted}>Click the button to toggle with display. It should replace this text.</text>
           </view>
         </view>

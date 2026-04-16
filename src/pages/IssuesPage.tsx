@@ -74,7 +74,7 @@ export function IssuesPage() {
         )}
 
         {error && (
-          <view p={20} bg={C.dangerDim} rounded={10} border={1} borderColor={C.danger}>
+          <view p={20} bg={C.dangerDim} rounded={8} border={1} borderColor={C.danger}>
             <text fontSize={14} color={C.dangerHi}>Error: {error}</text>
           </view>
         )}

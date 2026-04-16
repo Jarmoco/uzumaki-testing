@@ -35,7 +35,7 @@ export function Table<T>({
       flexDir="col"
       border={1}
       borderColor={C.border}
-      rounded={10}
+      rounded={8}
       overflow="hidden"
     >
       <view

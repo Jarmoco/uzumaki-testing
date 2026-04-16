@@ -40,7 +40,7 @@ export function EventsPage() {
           bg={C.surface2}
           hover:bg={C.surface3}
           active:bg={C.accentDark}
-          rounded={14}
+          rounded={8}
           border={2}
           borderColor={C.border}
           hover:borderColor={C.accent}
@@ -72,7 +72,7 @@ export function EventsPage() {
               flex={1}
               p={16}
               bg={C.surface2}
-              rounded={12}
+                rounded={8}
               border={1}
               borderColor={C.border}
               display="flex"
@@ -80,7 +80,7 @@ export function EventsPage() {
               items="center"
               gap={6}
             >
-              <view px={10} py={4} bg={bg} rounded={20}>
+              <view px={10} py={4} bg={bg} rounded={8}>
                 <text fontSize={10} fontWeight={700} color={color}>{label}</text>
               </view>
               <text fontSize={36} fontWeight={900} color={color}>{count}</text>
@@ -108,7 +108,7 @@ export function EventsPage() {
                 key={label}
                 flex={1}
                 p={14}
-                rounded={10}
+                rounded={8}
                 cursor="pointer"
                 display="flex"
                 items="center"
@@ -122,7 +122,7 @@ export function EventsPage() {
           </view>
         </view>
 
-        <view display='flex' flexDir='col' p={20} bg={C.surface} rounded={12} border={1} borderColor={C.border}>
+        <view display='flex' flexDir='col' p={20} bg={C.surface} rounded={8} border={1} borderColor={C.border}>
           <view display="flex" flexDir="row" items="center" justify="between" mb={12}>
             <view display="flex" flexDir="row" items="center" gap={8}>
               <text fontSize={14} fontWeight={700} color={C.text}>Event Log</text>
@@ -160,7 +160,7 @@ export function EventsPage() {
                 <text fontSize={11} color={C.textMuted} fontWeight={700}>
                   #{String(e.n).padStart(4, '0')}
                 </text>
-                <view w={6} h={6} bg={typeColor(e.type)} rounded={3} />
+                <view w={6} h={6} bg={typeColor(e.type)} rounded={4} />
                 <text fontSize={12} fontWeight={600} color={typeColor(e.type)}>
                   {e.type}
                 </text>

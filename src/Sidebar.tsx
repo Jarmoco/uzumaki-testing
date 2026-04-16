@@ -66,7 +66,7 @@ export function Sidebar({
                 </text>
               </view>
               {isActive && (
-                <view w={4} h={4} bg={C.accentHi} rounded={2} />
+                <view w={4} h={4} bg={C.accentHi} rounded={4} />
               )}
             </view>
           );
