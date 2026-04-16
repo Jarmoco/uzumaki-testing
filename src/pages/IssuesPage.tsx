@@ -35,20 +35,20 @@ export function IssuesPage() {
   }, []);
 
   const columns = [
-    { key: 'number', header: '#', width: 50 },
-    { key: 'title', header: 'Title', width: 280 },
-    { key: 'state', header: 'State', width: 70, render: (row: GitHubIssue) => (
+    { key: 'number', header: '#', width: 50, align: 'end' as const },
+    { key: 'title', header: 'Title', flex: 1 },
+    { key: 'state', header: 'State', width: 70, align: 'center' as const, render: (row: GitHubIssue) => (
       <Badge 
         label={row.state.toUpperCase()} 
         color={row.state === 'open' ? C.greenHi : C.textMuted} 
         bg={row.state === 'open' ? C.greenDim : C.surface3} 
       />
     )},
-    { key: 'user', header: 'Author', width: 100, render: (row: GitHubIssue) => (
+    { key: 'user', header: 'Author', width: 100, align: 'end' as const, render: (row: GitHubIssue) => (
       <text fontSize={12} color={C.blueHi}>{row.user.login}</text>
     )},
-    { key: 'comments', header: 'Comments', width: 70 },
-    { key: 'created_at', header: 'Created', width: 90, render: (row: GitHubIssue) => (
+    { key: 'comments', header: 'Comments', width: 70, align: 'end' as const },
+    { key: 'created_at', header: 'Created', width: 90, align: 'end' as const, render: (row: GitHubIssue) => (
       <text fontSize={11} color={C.textMuted}>
         {new Date(row.created_at).toLocaleDateString()}
       </text>
@@ -60,7 +60,6 @@ export function IssuesPage() {
       <view display="flex" flexDir="col" px={24} py={16} borderBottom={1} borderColor={C.border}>
         <view display="flex" flexDir="row" items="center" gap={12}>
           <text fontSize={20} fontWeight={800} color={C.text}>GitHub Issues</text>
-          <Badge label="Table Test" color={C.yellowHi} bg="#422006" />
         </view>
         <text fontSize={12} color={C.textMuted}>
           Fetching from https://github.com/golok727/uzumaki/issues

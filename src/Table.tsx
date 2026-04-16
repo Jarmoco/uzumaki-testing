@@ -5,6 +5,8 @@ export interface TableColumn<T> {
   key: keyof T | string;
   header: string;
   width?: number | string;
+  flex?: number;
+  align?: 'start' | 'center' | 'end';
   render?: (row: T, index: number) => ReactNode;
 }
 
@@ -46,11 +48,13 @@ export function Table<T>({
         {columns.map((col, i) => (
           <view
             key={String(col.key)}
-            w={col.width ?? 120}
+            flex={col.flex}
+            w={col.flex ? undefined : (col.width ?? 120)}
             h={rowHeight}
             px={12}
             display="flex"
             items="center"
+            justify={col.align}
           >
             <text fontSize={11} fontWeight={700} color={C.textMuted}>
               {col.header}
@@ -72,11 +76,13 @@ export function Table<T>({
             {columns.map((col, colIndex) => (
               <view
                 key={String(col.key)}
-                w={col.width ?? 120}
+                flex={col.flex}
+                w={col.flex ? undefined : (col.width ?? 120)}
                 h={rowHeight}
                 px={12}
                 display="flex"
                 items="center"
+                justify={col.align}
               >
                 {col.render 
                   ? col.render(row, rowIndex)
