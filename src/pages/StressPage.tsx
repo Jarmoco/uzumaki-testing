@@ -104,7 +104,7 @@ export function StressPage() {
         <view display="flex" flexDir="col" gap={10}>
           <view display="flex" flexDir="row" items="center" gap={8}>
             <text fontSize={14} fontWeight={700} color={C.text}>Cursor kinds</text>
-            <Badge label="ISSUE: inner text overrides the parent cursor type despite not being an input" color={C.yellowHi} bg="#422006" />
+            <Badge label="ISSUE: inner text overrides the parent cursor type to 'text' despite not being an input" color={C.yellowHi} bg="#422006" />
           </view>
           <view display="flex" flexDir="row" gap={8}>
             {(
