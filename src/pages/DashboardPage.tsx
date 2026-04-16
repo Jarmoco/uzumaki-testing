@@ -53,7 +53,12 @@ export function DashboardPage() {
       >
         <view display="flex" flexDir="col" gap={2}>
           <text fontSize={20} fontWeight={800} color={C.text}>System Dashboard</text>
-          <text fontSize={12} color={C.textMuted}>Live GPU-rendered stress monitor (fake data)</text>
+          <view display="flex" flexDir="row" items="center" gap={8}>
+            <view px={8} py={2} bg={C.accentDim} rounded={4}>
+              <text fontSize={10} fontWeight={700} color={C.accentHi}>DEMO MODE</text>
+            </view>
+            <text fontSize={12} color={C.textMuted}>Fake data for demonstration</text>
+          </view>
         </view>
         <view display="flex" flexDir="row" items="center" gap={10}>
           <view display="flex" flexDir="row" items="center" gap={6} px={12} py={6} bg={C.greenDim} rounded={20}>
