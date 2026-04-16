@@ -103,8 +103,6 @@ export function EventsPage() {
                 'active:borderColor': C.accentHi,
               }},
             ].map(({ label, props }) => {
-              const txtColor = label === 'hover:opacity' ? C.textDim : C.textSub;
-              const hoverTxtColor = '#000';
               return (
               <view
                 key={label}
@@ -117,7 +115,7 @@ export function EventsPage() {
                 justify="center"
                 {...props}
               >
-                <text fontSize={12} color={txtColor} hover:color={hoverTxtColor}>{label}</text>
+                <text fontSize={12}>{label}</text>
               </view>
               );
             })}
