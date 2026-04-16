@@ -8,12 +8,10 @@ export function StressPage() {
   const [tileCount, setTileCount] = useState(80);
   const [tileColors, setTileColors] = useState<string[]>([]);
 
-  const colors20 = [
-    '#7c3aed','#6d28d9','#5b21b6','#4c1d95',
-    '#3b82f6','#2563eb','#1d4ed8','#1e40af',
-    '#22c55e','#16a34a','#15803d','#14532d',
+  const colors12 = [
+    '#e2a52e','#d28e20','#c27818','#b56d19',
     '#f97316','#ea580c','#c2410c','#9a3412',
-    '#ef4444','#dc2626','#b91c1c','#991b1b',
+    '#914e17','#783f1b','#67351c','#3c1a0c',
   ];
 
   useEffect(() => {
@@ -23,7 +21,7 @@ export function StressPage() {
         const next = [...prev];
         for (let i = 0; i < 5; i++) {
           const idx = Math.floor(Math.random() * tileCount);
-          next[idx] = colors20[Math.floor(Math.random() * colors20.length)];
+          next[idx] = colors12[Math.floor(Math.random() * colors12.length)];
         }
         return next;
       });
@@ -33,7 +31,7 @@ export function StressPage() {
 
   useEffect(() => {
     setTileColors(
-      Array.from({ length: tileCount }, (_, i) => colors20[i % colors20.length])
+      Array.from({ length: tileCount }, (_, i) => colors12[i % colors12.length])
     );
   }, [tileCount]);
 
@@ -55,7 +53,7 @@ export function StressPage() {
             display="flex" flexDir="col" gap={4}
           >
             <text fontSize={12} color={C.textMuted} fontWeight={600}>16hz TICKER</text>
-            <text fontSize={52} fontWeight={900} color={fastTick % 2 === 0 ? C.accentHi : C.blueHi}>
+            <text fontSize={52} fontWeight={900} color={fastTick % 2 === 0 ? C.accentHi : C.primaryHi}>
               {fastTick}
             </text>
             <text fontSize={12} color={C.textMuted}>{(fastTick / 16).toFixed(2)}s · ~{fastTick * 16} renders</text>
@@ -78,7 +76,7 @@ export function StressPage() {
               <view
                 h={10}
                 w={`${Math.min(80, Math.max(5, 50 + Math.cos(fastTick * 0.2) * 45))}%`}
-                bg={C.blue}
+                bg={C.primary}
                 rounded={5}
               />
             </view>
@@ -86,7 +84,7 @@ export function StressPage() {
               <view
                 h={10}
                 w={`${Math.min(80, Math.max(5, 50 + Math.sin(fastTick * 0.5 + 1) * 45))}%`}
-                bg={C.green}
+                bg={C.success}
                 rounded={5}
               />
             </view>
@@ -94,7 +92,7 @@ export function StressPage() {
               <view
                 h={10}
                 w={`${Math.min(80, Math.max(5, 50 + Math.cos(fastTick * 0.4 + 2) * 45))}%`}
-                bg={C.orange}
+                bg={C.warning}
                 rounded={5}
               />
             </view>
@@ -141,14 +139,14 @@ export function StressPage() {
                 px={10} py={4} bg={C.surface3} hover:bg={C.surface4} rounded={6}
                 border={1} borderColor={C.border} cursor="pointer"
               >
-                <text fontSize={12} color={C.green}>+20</text>
+                <text fontSize={12} color={C.success}>+20</text>
               </button>
               <button
                 onClick={() => setTileCount(n => Math.max(20, n - 20))}
                 px={10} py={4} bg={C.surface3} hover:bg={C.surface4} rounded={6}
                 border={1} borderColor={C.border} cursor="pointer"
               >
-                <text fontSize={12} color={C.red}>−20</text>
+                <text fontSize={12} color={C.danger}>−20</text>
               </button>
             </view>
           </view>

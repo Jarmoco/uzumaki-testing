@@ -6,24 +6,32 @@ export const C = {
   surface4:    '#222228',
   border:      '#282828',
   borderHi:    '#3f3f3f',
+
   accent:      '#e2a52e',
-  accentHi:    '#f0c04a',
-  accentDim:   '#7a5518',
-  accentDark:  '#3d2a0c',
-  blue:        '#3b82f6',
-  blueHi:      '#93c5fd',
-  blueDim:     '#1e3a5f',
-  blueDark:    '#1e3a8a',
-  green:       '#22c55e',
-  greenHi:     '#86efac',
-  greenDim:    '#14532d',
-  red:         '#ef4444',
-  redHi:       '#fca5a5',
-  redDim:      '#7f1d1d',
-  orange:      '#f97316',
-  orangeHi:    '#fdba74',
-  yellow:      '#eab308',
-  yellowHi:    '#fde047',
+  accentHi:   '#f0c04a',
+  accentDim:  '#7a5518',
+  accentDark: '#3d2a0c',
+
+  primary:     '#e2a52e',
+  primaryHi:   '#f0c04a',
+  primaryDim:  '#7a5518',
+  primaryDark: '#3d2a0c',
+
+  success:     '#d28e20',
+  successHi:   '#f2da96',
+  successDim:  '#914e17',
+  successDark: '#3c1a0c',
+
+  warning:     '#b56d19',
+  warningHi:   '#eabf5a',
+  warningDim:  '#783f1b',
+  warningDark: '#3c1a0c',
+
+  danger:      '#914e17',
+  dangerHi:    '#eabf5a',
+  dangerDim:  '#67351c',
+  dangerDark:  '#3c1a0c',
+
   text:        '#e4e4e7',
   textSub:     '#a1a1aa',
   textMuted:   '#84848e',
@@ -36,9 +44,9 @@ export function lerp(a: number, b: number, t: number) {
 
 export function indexColor(i: number, tick: number): string {
   const palette = [
-    '#7c3aed', '#3b82f6', '#22c55e', '#f97316',
-    '#ef4444', '#eab308', '#ec4899', '#06b6d4',
-    '#84cc16', '#a855f7', '#14b8a6', '#f43f5e',
+    '#e2a52e', '#d28e20', '#b56d19', '#914e17',
+    '#f0c04a', '#f2da96', '#eabf5a', '#7a5518',
+    '#3d2a0c', '#67351c', '#783f1b', '#3c1a0c',
   ];
   return palette[(i + Math.floor(tick / 3)) % palette.length];
 }
