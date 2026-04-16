@@ -30,8 +30,8 @@ export function InputsPage() {
             fontSize={15}
             color={C.text}
             bg={C.surface2}
-            p={12}
-            rounded={10}
+            p={4}
+            rounded={8}
             border={1}
             borderColor={search.length > 0 ? C.accent : C.border}
             w="full"
@@ -60,8 +60,8 @@ export function InputsPage() {
               fontSize={14}
               color={C.text}
               bg={C.surface2}
-              p={12}
-              rounded={10}
+              p={4}
+              rounded={8}
               border={1}
               borderColor={C.border}
               w="full"
@@ -76,8 +76,8 @@ export function InputsPage() {
               fontSize={14}
               color={C.text}
               bg={C.surface2}
-              p={12}
-              rounded={10}
+              p={4}
+              rounded={8}
               border={1}
               borderColor={C.border}
               w="full"
@@ -96,8 +96,8 @@ export function InputsPage() {
               fontSize={14}
               color={C.text}
               bg={C.surface2}
-              p={12}
-              rounded={10}
+              p={4}
+              rounded={8}
               border={1}
               borderColor={C.border}
               w="full"
@@ -113,8 +113,8 @@ export function InputsPage() {
               fontSize={14}
               color={C.text}
               bg={C.surface2}
-              p={12}
-              rounded={10}
+              p={4}
+              rounded={8}
               border={1}
               borderColor={pwMismatch ? C.danger : pwMatch ? C.success : C.border}
               w="full"
@@ -140,7 +140,7 @@ export function InputsPage() {
             color={C.text}
             bg={C.surface2}
             p={12}
-            rounded={10}
+            rounded={8}
             border={1}
             borderColor={bio.length > 200 ? C.warning : C.border}
             w="full"
@@ -148,7 +148,7 @@ export function InputsPage() {
           />
         </view>
 
-        <view display="flex" flexDir="row" gap={10}>
+        <view display="flex" flexDir="row" gap={8}>
           <button
             onClick={() => setSubmitted(true)}
             px={24}
@@ -156,7 +156,7 @@ export function InputsPage() {
             bg={C.accent}
             hover:bg={C.warning}
             active:bg={C.warningDark}
-            rounded={10}
+            rounded={8}
             cursor="pointer"
           >
             <text fontSize={14} fontWeight={700} color="#fff">Submit Form</text>
@@ -171,7 +171,7 @@ export function InputsPage() {
             bg={C.surface3}
             hover:bg={C.surface4}
             active:bg={C.surface2}
-            rounded={10}
+            rounded={8}
             border={1}
             borderColor={C.border}
             cursor="pointer"
@@ -184,7 +184,7 @@ export function InputsPage() {
           <view
             p={16}
             bg={C.successDim}
-            rounded={10}
+            rounded={8}
             border={1}
             borderColor={C.success}
             display="flex"
@@ -209,7 +209,7 @@ export function InputsPage() {
             w="full"
             p={16}
             bg={C.surface2}
-            rounded={10}
+            rounded={8}
             border={1}
             borderColor={C.borderHi}
             overflowX="hidden"
