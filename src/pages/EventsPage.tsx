@@ -23,7 +23,7 @@ export function EventsPage() {
   return (
     <view display="flex" flexDir="col" gap={0} h="full" scrollable>
       <view display="flex" flexDir="col" px={24} py={16} borderBottom={1} borderColor={C.border}>
-        <text fontSize={20} fontWeight={800} color={C.text}>Event Monitor</text>
+        <text fontSize={20} fontWeight={800} color={C.text}>Mouse Events</text>
         <text fontSize={12} color={C.textMuted}>
           onClick · onMouseDown · onMouseUp · hover:* · active:*
         </text>

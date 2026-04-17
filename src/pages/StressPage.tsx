@@ -100,33 +100,6 @@ export function StressPage() {
         </view>
 
         <view display="flex" flexDir="col" gap={10}>
-          <view display="flex" flexDir="row" items="center" gap={8}>
-            <text fontSize={14} fontWeight={700} color={C.text}>Cursor kinds</text>
-          </view>
-          <view display="flex" flexDir="row" gap={8}>
-            {(
-              ['default', 'pointer', 'text', 'crosshair', 'not-allowed', 'grab'] as const
-            ).map(cur => (
-              <view
-                key={cur}
-                px={14}
-                py={10}
-                bg={C.surface2}
-                hover:bg={C.surface3}
-                active:bg={C.surface4}
-                rounded={8}
-                border={1}
-                borderColor={C.border}
-                hover:borderColor={C.accentHi}
-                cursor={cur}
-              >
-                <text fontSize={12} color={C.textDim} hover:color={C.text}>{cur}</text>
-              </view>
-            ))}
-          </view>
-        </view>
-
-        <view display="flex" flexDir="col" gap={10}>
           <view display="flex" flexDir="row" items="center" justify="between">
             <view display="flex" flexDir="row" items="center" gap={8}>
               <text fontSize={14} fontWeight={700} color={C.text}>Animated tile grid</text>
