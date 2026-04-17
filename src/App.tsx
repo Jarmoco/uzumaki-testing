@@ -23,8 +23,8 @@ export function App() {
 
   return (
     <view display="flex" flexDir="row" w="full" h="full" bg={C.bg}>
-      <Sidebar active={activeTab} setActive={setActiveTab} />
-      <view flex={1} h="full" display="flex" flexDir="col" bg={C.bg}>
+      <Sidebar w="16%" active={activeTab} setActive={setActiveTab} />
+      <view w="84%" h="full" display="flex" flexDir="col" bg={C.bg}>
         {page}
       </view>
     </view>

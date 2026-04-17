@@ -11,14 +11,15 @@ const TABS: { id: Tab; label: string; icon: string; }[] = [
 ];
 
 export function Sidebar({
-  active, setActive,
+  active, setActive, w
 }: {
   active: Tab;
   setActive: (t: Tab) => void;
+  w: string;
 }) {
   return (
     <view
-      w={210}
+      w={w}
       h="full"
       bg={C.surface}
       borderRight={1}
