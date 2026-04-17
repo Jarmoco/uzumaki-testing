@@ -150,9 +150,12 @@ export function InputsPage() {
 
         <view display="flex" flexDir="row" gap={8}>
           <button
+            display='flex'
+            flexDir='col'
+            justify='center'
             onClick={() => setSubmitted(true)}
             px={24}
-            py={12}
+            h={36}
             bg={C.accent}
             hover:bg={C.warning}
             active:bg={C.warningDark}
@@ -162,12 +165,15 @@ export function InputsPage() {
             <text fontSize={14} fontWeight={700} color="#fff">Submit Form</text>
           </button>
           <button
+            display='flex'
+            flexDir='col'
+            justify='center'
             onClick={() => {
               setUsername(''); setEmail(''); setPassword('');
               setConfirm(''); setBio(''); setSearch(''); setSubmitted(false);
             }}
             px={24}
-            py={12}
+            h={36}
             bg={C.surface3}
             hover:bg={C.surface4}
             active:bg={C.surface2}
@@ -214,7 +220,7 @@ export function InputsPage() {
             borderColor={C.borderHi}
             overflowX="hidden"
           >
-            <text fontSize={13} color={C.textDim}>
+            <text fontSize={13} color={C.textDim} w="100%">
               The quick brown fox jumps over the lazy dog. Pack my box with five dozen liquor jugs.
               How valiantly the strong and quick brown fox leaps over the sleeping lazy hound dog!
               Try selecting this text with your mouse — this tests the selectable prop and focus element behavior.
