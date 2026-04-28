@@ -1,5 +1,7 @@
 # Uzumaki-testing
 
+## Archived: merged into [uzumaki playground](https://github.com/golok727/uzumaki)
+
 Test app used to find issues in [uzumaki](https://github.com/golok727/uzumaki)
 
 It is recommended to clone this repo in the same folder in which you are developing uzumaki, this way `package.json` will automatically link to your local binary and package:
